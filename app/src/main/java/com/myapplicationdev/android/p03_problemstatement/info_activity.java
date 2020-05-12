@@ -71,7 +71,7 @@ public class info_activity extends AppCompatActivity {
                 if(module.equals("C347")){
                     Intent rpIntent = new Intent(Intent.ACTION_VIEW);
                     // Set the URL to be used.
-                    rpIntent.setData(Uri.parse("https://www.rp.edu.sg/soi/home"));
+                    rpIntent.setData(Uri.parse("https://www.rp.edu.sg/schools-courses/courses/full-time-diplomas/full-time-courses/modules/index/C347"));
                     startActivity(rpIntent);
                 }
                 else if(module.equals("C302")){

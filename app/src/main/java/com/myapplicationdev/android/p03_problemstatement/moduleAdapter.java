@@ -32,7 +32,7 @@ public class moduleAdapter extends ArrayAdapter<module> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row, parent, false);
+        View rowView = inflater.inflate(R.layout.row2, parent, false);
 
         // Get the TextView object
         tvCode = (TextView) rowView.findViewById(R.id.tvCode);

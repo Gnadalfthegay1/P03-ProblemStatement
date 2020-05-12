@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 module m = M.get(position);
                 Intent i = new Intent(getApplicationContext(), info_activity.class);
                 i.putExtra("module", m.getCode());
+                startActivity(i);
             }
         });
     }
