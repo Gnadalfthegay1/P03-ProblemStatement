@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,41 +14,27 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    int requestCodeForC347 = 1;
-    int requestCodeForC302 = 2;
-    TextView tvC302, tvC347;
+    ListView lvModules;
+    ArrayAdapter aa;
+    ArrayList<module> M;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvC302 = findViewById(R.id.tvC302);
-        tvC347 = findViewById(R.id.tvC347);
-
-        tvC347.setOnClickListener(new View.OnClickListener() {
+        lvModules = findViewById(R.id.lvModules);
+        M = new ArrayList<module>();
+        M.add(new module("C302", "Web Services"));
+        M.add(new module("C347", "Android Programming II"));
+        aa = new moduleAdapter(this, R.layout.row2, M);
+        lvModules.setAdapter(aa);
+        lvModules.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,
-                        info_activity.class);
-                i.putExtra("module", tvC347.getText().toString());
-                // Start the activity
-                startActivity(i);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                module m = M.get(position);
+                Intent i = new Intent(getApplicationContext(), info_activity.class);
+                i.putExtra("module", m.getCode());
             }
         });
-        tvC302.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,
-                        info_activity.class);
-                i.putExtra("module", tvC302.getText().toString());
-                // Start the activity
-                startActivity(i);
-            }
-        });
-
-
-
-
-
     }
 
 }
