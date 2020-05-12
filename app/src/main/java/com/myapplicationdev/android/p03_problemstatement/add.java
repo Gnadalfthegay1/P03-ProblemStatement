@@ -20,6 +20,7 @@ public class add extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        setTitle("Add data for the Week");
         Button btn = (Button) findViewById(R.id.btSubmit);
         Intent i = getIntent();
         final int wk = i.getIntExtra("wk", 0);

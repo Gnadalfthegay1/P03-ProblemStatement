@@ -27,12 +27,14 @@ public class info_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_activity);
+        Intent oi = getIntent();
+        module = oi.getStringExtra("module");
+        setTitle("Info for "+ module);
         lvgrades = findViewById(R.id.lvGrades);
         btAdd = findViewById(R.id.btAdd);
         btInfo = findViewById(R.id.btInfo);
         btEmail = findViewById(R.id.btMail);
-        Intent oi = getIntent();
-        module = oi.getStringExtra("module");
+
         if(module.equals("C347")){
             a = new customAdapter(this, R.layout.row, CA);
             lvgrades.setAdapter(a);
